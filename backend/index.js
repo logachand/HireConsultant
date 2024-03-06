@@ -30,7 +30,7 @@ app.use('/consultant',consultantRoute)
 app.use('/hiredConsultant',hiredConsultantRoute)
 app.use('/reviewConsultant',reviewConsultantRoute)
 
-const mongoURL = process.env.DB_LOCAL 
+const mongoURL = process.env.DB_SERVER 
 
 mongoose.connect(mongoURL)
 .then(()=>{
