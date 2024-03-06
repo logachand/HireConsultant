@@ -12,10 +12,10 @@ import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
-import Navigation from "../Navigation";
-import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+// import Navigation from "../Navigation";
+// import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Axios from "axios";
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
 import TestHome from "../TestComp/TestHome";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 

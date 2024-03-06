@@ -60,7 +60,7 @@ export default function TestHome() {
                 <div className="nav-item dropdown">
                     <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div className="dropdown-menu bg-light m-0">
-                        <a href="feature.html" className="dropdown-item">Features</a>
+                        {/* Route */}
                         <a href="appointment.html" className="dropdown-item">Appointment</a>
                         <a href="team.html" className="dropdown-item">Our Team</a>
                         <a href="testimonial.html" className="dropdown-item">Testimonial</a>

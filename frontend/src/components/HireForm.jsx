@@ -17,9 +17,9 @@ function HireForm() {
   const [age, setAge] = useState();
   const [interest, setInterest] = useState();
 
-  const hireMe = (id) =>{
-    getId(id);
-  }
+  // const hireMe = (id) =>{
+  //   getId(id);
+  // }
 
   const hireFormSubmit = (e) => {
     e.preventDefault();
