@@ -35,10 +35,10 @@ export default function TestHome() {
                     <small>+91 91505 41812</small>
                 </div>
                 <div className="h-100 d-inline-flex align-items-center mx-n2">
-                    <a className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i className="fab fa-facebook-f"></i></a>
-                    <a className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i className="fab fa-twitter"></i></a>
-                    <a className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i className="fab fa-linkedin-in"></i></a>
-                    <a className="btn btn-square btn-link rounded-0" href=""><FontAwesomeIcon icon="fa-solid fa-user" /></a>
+                    <a className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href="https://facebook.com"><i className="fab fa-facebook-f"></i></a>
+                    <a className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href="https://facebook.com"><i className="fab fa-twitter"></i></a>
+                    <a className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href="https://facebook.com"><i className="fab fa-linkedin-in"></i></a>
+                    <a className="btn btn-square btn-link rounded-0" href="https://facebook.com"><FontAwesomeIcon icon="fa-solid fa-user" /></a>
                 </div>
             </div>
         </div>
@@ -58,23 +58,23 @@ export default function TestHome() {
                 <a href="about.html" className="nav-item nav-link">About</a>
                 <a href="courses.html" className="nav-item nav-link">Consultants</a>
                 <div className="nav-item dropdown">
-                    <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="https://facebook.com" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div className="dropdown-menu bg-light m-0">
                         {/* Route */}
                         <a href="appointment.html" className="dropdown-item">Appointment</a>
                         <a href="team.html" className="dropdown-item">Our Team</a>
                         <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                        <Link to = "/adminPanel"><a href="" className="dropdown-item">Admin Page</a></Link>
+                        <Link to = "/adminPanel"><a className="dropdown-item">Admin Page</a></Link>
                     </div>
                 </div>
                 <a href="contact.html" className="nav-item nav-link">Contact</a>
             </div>
            <div className="nav-item dropdown">
-            <a href="" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block" data-bs-toggle="dropdown" >Account</a>
+            <a href="https://facebook.com" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block" data-bs-toggle="dropdown" >Account</a>
                     <div className="dropdown-menu bg-light m-0">
-                    <Link to ="/login"><a className="dropdown-item" style={{textDecorationColor:"red"}}>Login</a></Link>
+                    <Link to ="/login"><a  href="https://facebook.com" className="dropdown-item" style={{textDecorationColor:"red"}}>Login</a></Link>
                     <Link to ="/signup"><a href="appointment.html" className="dropdown-item">Register</a></Link>
-                    <Link to = "/login"><a href="" onClick={()=> Logout()} className="dropdown-item">Logout</a></Link>
+                    <Link to = "/login"><a href="https://facebook.com" onClick={()=> Logout()} className="dropdown-item">Logout</a></Link>
                     </div>
                 </div>
            
@@ -88,7 +88,7 @@ export default function TestHome() {
         >
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="w-100" src={image1} alt="Image"/>
+              <img className="w-100" src={image1} alt=""/>
               <div className="carousel-caption">
                 <div className="container">
                   <div className="row justify-content-center">
@@ -96,10 +96,10 @@ export default function TestHome() {
                       <h1 className="display-2 text-light mb-5 animated slideInDown" style={{fontSize:"35px", fontFamily:"sans-serif", fontStyle:""}}>
                         Hire The Best Consultant
                       </h1>
-                      <a href="" className="btn btn-primary py-sm-3 px-sm-5">
+                      <a href="https://linkedin.com" className="btn btn-primary py-sm-3 px-sm-5">
                         Learn More
                       </a>
-                      <a href="" className="btn btn-light py-sm-3 px-sm-5 ms-3">
+                      <a href="https://linkedin.com" className="btn btn-light py-sm-3 px-sm-5 ms-3">
                         Our Consultants
                       </a>
                     </div>
@@ -108,7 +108,7 @@ export default function TestHome() {
               </div>
             </div>
             <div className="carousel-item">
-              <img className="w-100" src={image2} alt="Image" />
+              <img className="w-100" src={image2} alt="" />
               <div className="carousel-caption">
                 <div className="container">
                   <div className="row justify-content-center">
@@ -116,10 +116,10 @@ export default function TestHome() {
                       <h1 className="display-2 text-light mb-5 animated slideInDown">
                         Safe Driving Is Our Top Priority
                       </h1>
-                      <a href="" className="btn btn-primary py-sm-3 px-sm-5">
+                      <a href="https://linkedin.com" className="btn btn-primary py-sm-3 px-sm-5">
                         Learn More
                       </a>
-                      <a href="" className="btn btn-light py-sm-3 px-sm-5 ms-3">
+                      <a href="https://linkedin.com" className="btn btn-light py-sm-3 px-sm-5 ms-3">
                         Our Courses
                       </a>
                     </div>

@@ -39,9 +39,9 @@ export default function Testimonal() {
                         <div className="position-relative">
                             <img className="img-fluid" src={team1} alt=""/>
                             <div className="team-social text-center">
-                                <a className="btn btn-square btn-outline-primary border-2 m-1" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square btn-outline-primary border-2 m-1" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square btn-outline-primary border-2 m-1" href=""><i className="fab fa-instagram"></i></a>
+                                <a className="btn btn-square btn-outline-primary border-2 m-1" href="https://linkedin.com"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-square btn-outline-primary border-2 m-1" href="https://linkedin.com"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-square btn-outline-primary border-2 m-1" href="https://linkedin.com"><i className="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div className="bg-light text-center p-4">
