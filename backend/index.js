@@ -22,6 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('uploads'))
 
 
+// checking
+
+app.get('/',(req,res)=>{
+    res.send("Hello world")
+})
+
 
 // Routes
 app.use('/users',route)
