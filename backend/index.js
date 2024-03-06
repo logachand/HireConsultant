@@ -13,7 +13,6 @@ const PORT =  process.env.PORT
 
 
 
-
 app.use(cors({
     origin:"*"
 }))
@@ -31,7 +30,7 @@ app.use('/consultant',consultantRoute)
 app.use('/hiredConsultant',hiredConsultantRoute)
 app.use('/reviewConsultant',reviewConsultantRoute)
 
-const mongoURL = process.env.DB
+const mongoURL = process.env.DB_LOCAL 
 
 mongoose.connect(mongoURL)
 .then(()=>{
