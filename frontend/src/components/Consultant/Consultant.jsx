@@ -22,7 +22,7 @@ import TestHome from "../../TestComp/TestHome";
 export default function Consultant() {
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:4000/consultant/getConsultant").then((res) =>
+    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`).then((res) =>
       setCards(res.data)
     );
   });
