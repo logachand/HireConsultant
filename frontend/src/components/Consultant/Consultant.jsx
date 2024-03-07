@@ -11,13 +11,13 @@ import Container from "@mui/material/Container";
 import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
+// import Checkbox from "@mui/material/Checkbox";
 // import Navigation from "../Navigation";
 // import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Axios from "axios";
 // import Carousel from "react-bootstrap/Carousel";
-import TestHome from "../TestComp/TestHome";
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import TestHome from "../../TestComp/TestHome";
+// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function Consultant() {
   const [cards, setCards] = useState([]);
@@ -82,11 +82,11 @@ export default function Consultant() {
                   >
                     Review
                   </Button>
-                  <Checkbox
+                  {/* <Checkbox
                     {...label}
                     defaultChecked
                     
-                  />
+                  /> */}
                   {/* <CheckCircleOutlinedIcon/> */}
                 </CardActions>
               </Card>

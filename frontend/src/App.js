@@ -3,16 +3,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminPanel from "./pages/AdminPanel";
 import CreateConsultant from "./pages/CreateConsultant.jsx";
 import UpdateUser from "./pages/UpdateUser";
-import Login from "./login/TesLogin/Login";
-import Signup from "./login/TesSignup/Signup";
-import Logout from "./login/Logout.jsx"
-import ForgotPassword from "./login/ForgotPassword";
-import ResetPassword from "./login/ResetPassword"
-import Main from "./components/Main"
-import Test from "./components/Test";
-import Consultant from "./components/Consultant";
-import HireForm from "./components/HireForm";
-import ReviewConsultant from "./components/ReviewConsultant";
+import Login from "./components/UserAuth/Login/Login.jsx";
+import Signup from "./components/UserAuth/Signup/Signup.jsx";
+import Logout from "./components/UserAuth/Logout.jsx"
+import ForgotPassword from "./components/UserAuth/ForgotPassword.js";
+import ResetPassword from "./components/UserAuth/ResetPassword.js"
+import Main from "./components/Consultant/Main.js"
+import Consultant from "./components/Consultant/Consultant.jsx";
+import HireForm from "./components/Consultant/HireForm.jsx";
+import ReviewConsultant from "./components/Consultant/ReviewConsultant.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import TestHome from "./TestComp/TestHome";
 import Testimonal from "./TestComp/Testimonal";
@@ -34,7 +33,6 @@ function App() {
         <Route path="/testimonal" element={<Testimonal/>}/>
         <Route path="/" element={<Consultant/>}/>
         <Route path="/main" element={<Main />} />
-        <Route path="/test" element={<Test/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout/>}/>

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Navigation from "../Navigation";
+import Navigation from "../../Navigation";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Con from "react-bootstrap/Container";
 import Axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SuccessPopUp from "./SuccessPopUp/PopUp";
+import SuccessPopUp from "../SuccessPopUp/PopUp";
 
 
 

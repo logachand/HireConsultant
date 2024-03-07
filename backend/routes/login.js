@@ -79,9 +79,9 @@ login_route.post("/forgotPassword", async (req, res) => {
       from: "logachan08@gmail.com",
       to: email,
       subject: `Reset your Password`,
-      // text: `${process.env.CLIENT_LOCAL}/resetPassword/${user._id}/${token}`,
+      // text: `${process.env.CLIENT}/resetPassword/${user._id}/${token}`,
       html: `<b>This is Your Reset Password Mail</b><br><br><br>
-             <a href="${process.env.CLIENT_LOCAL}/resetPassword/${user._id}/${token}"><button>Reset Password</button></a>`, 
+             <a href="${process.env.CLIENT}/resetPassword/${user._id}/${token}"><button>Reset Password</button></a>`, 
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
