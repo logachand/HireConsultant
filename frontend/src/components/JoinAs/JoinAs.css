@@ -1,0 +1,16 @@
+.title {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 100%;
+    margin-top: 50px;
+  }
+  
+  .crad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    /* height: 100vh; Make the card container fill the viewport height */
+    max-width: 100%;
+  }
+  

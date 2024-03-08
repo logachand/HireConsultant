@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import Navigation from "../Navigation";
+import Navigation from "./Navigation";
 // import { GoogleLogin } from "@react-oauth/google";
 import Axios from "axios";
 import {Link,useNavigate } from "react-router-dom";

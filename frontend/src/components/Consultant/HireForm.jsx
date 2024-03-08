@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Con from "react-bootstrap/Container";
-import Navigation from "../../Navigation";
+import Navbar from "../../TestComp/Navbar"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import TestNav from "../../TestNav/TestNav"
 
 function HireForm() {
 
@@ -44,25 +45,20 @@ function HireForm() {
 
   return (
     <>
-      <Navigation />
+      <TestNav/>
       <ToastContainer />
       <Con>
-        <h1
-          className="display-4 text-center"
-          style={{ color: "green", padding: "20px" }}
-        >
-          HIRE THE BEST CONSULTANT
-        </h1>
+      <h1 className="display-4 text-center" style={{color:"#fff", backgroundColor:"#172554 ",textAlign:"center",border:"3px solid #172554", borderRadius:"4px", marginTop:"15px"}}>Hire Consultant Form</h1>
         <Form onSubmit={hireFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Enter Consultant Name : </Form.Label>
-            <Form.Control
+          {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter Consultant Name : </Form.Label> */}
+            {/* <Form.Control
               name="consultantName"
               type="text"
               placeholder="Enter Consultant Name"
               onChange={(e) => setConsultantName(e.target.value)}
-            />
-          </Form.Group>
+            /> */}
+          {/* </Form.Group> */}
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Enter Your Name :</Form.Label>

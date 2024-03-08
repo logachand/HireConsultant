@@ -34,7 +34,7 @@ export default function Login() {
         }
       })
       .catch((err) => console.log(`${err}`));
-  };
+  };      
   return (
     <>
       <ToastContainer />
@@ -67,8 +67,14 @@ export default function Login() {
             </form>
             <GoogleLogin
               onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
-                navigate('/')
+                console.log(credentialResponse)
+                window.localStorage.setItem("GoogleLogin",true)
+                toast.success("Google Login",{
+                  onClose:()=>{
+                    navigate('/')
+                  }
+                })
+                
               }}
               onError={() => {
                 console.log("Login Failed");

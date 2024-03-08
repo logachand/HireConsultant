@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navigation from "../../Navigation";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Con from "react-bootstrap/Container";
+import Navbar from "../../TestComp/Navbar"
 import Axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,7 +38,7 @@ export default function ReviewConsultant() {
 
   return (
     <>
-      <Navigation />
+      <Navbar/>
       <ToastContainer />
       <Con>
         <h1

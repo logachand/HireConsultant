@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import Navigation from "../Navigation";
+import TestNav from "../../TestNav/TestNav";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast,ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
-function CreateConsultant() {
+export default function CreateAsConsultant() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [des, setDes] = useState("");
@@ -15,15 +17,20 @@ function CreateConsultant() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    Axios.post(`${process.env.REACT_APP_SERVER_API}/consultant/createConsultant`, {
-      title: title,
-      des: des,
-      img: img,
-    })
-
+    Axios.post(
+      `${process.env.REACT_APP_SERVER_API}/consultant/createConsultant`,
+      {
+        title: title,
+        des: des,
+        img: img,
+      }
+    )
       .then((res) => {
-        console.log("title of the Consulant" + res.data.title);
-        alert("Consultant is Created");
+        toast.success("Consultant Created",{
+          onclose:()=>{
+            navigate ('/')
+          }
+        })
       })
       .catch((err) =>
         console.log(`Error is Going on Please check it : ${err}`)
@@ -31,14 +38,13 @@ function CreateConsultant() {
     setTitle("");
     setDes("");
     setImg("");
-    navigate("/");
   };
-
   return (
-    <div>
-      <Navigation />
+    <>
+      <TestNav/>
+      <ToastContainer/>
       <Container>
-        <h1 className="display-4 text-center">Create Consultant</h1>
+        <h1 className="display-4 text-center" style={{color:"#fff", backgroundColor:"#172554 ",textAlign:"center",border:"3px solid #172554", borderRadius:"4px", marginTop:"15px"}}>Create Consultant</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Enter Name </Form.Label>
@@ -75,8 +81,6 @@ function CreateConsultant() {
           </Button>
         </Form>
       </Container>
-    </div>
+    </>
   );
 }
-
-export default CreateConsultant;

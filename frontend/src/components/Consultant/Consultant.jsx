@@ -16,20 +16,38 @@ import Button from "@mui/material/Button";
 // import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Axios from "axios";
 // import Carousel from "react-bootstrap/Carousel";
-import TestHome from "../../TestComp/TestHome";
+import Navbar from "../../TestComp/Navbar";
+import Testimonal from "../../TestComp/Testimonal";
+import { NavLink,Link } from "react-router-dom";
+
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function Consultant() {
+
+
   const [cards, setCards] = useState([]);
   useEffect(() => {
     Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`).then((res) =>
       setCards(res.data)
     );
   });
+  
+  const getToken = window.localStorage.getItem("Token")
+  const googleLogin = window.localStorage.getItem("GoogleLogin")
+  console.log(getToken);
+  // const navigate = useNavigate()
 
+  // const viewDetail = (id) => {
+  //     consultantId = id 
+  //     console.log("User ID 1111= "+consultantId );
+  //     value = `/viewDetails/${consultantId}`
+  //   }
+
+  
   return (
     <>
-      <TestHome/>
+      <Navbar/>
+      <Testimonal/>
       {/* <Typography
         variant="h4"
         align="center"
@@ -68,20 +86,29 @@ export default function Consultant() {
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
-                  <Button
+                  <NavLink to={"/hireForm"}><Button
                     variant="contained"
                     size="medium"
                     style={{ fontSize: "13px" }}
                     href="/hireForm"
                   >
                     Hire Me
-                  </Button>
-                  <Button
+                  </Button></NavLink>
+                  {!getToken && !googleLogin ?
+                  <Link to = "/joinAs">
+                  <Button 
                     variant="contained"
                     size="medium"
                   >
-                    Review
+                    View Details
                   </Button>
+                  </Link>:
+                  <Link to = {`/viewDetails/${card._id}`}><Button 
+                    variant="contained"
+                    size="medium"
+                  >
+                    View Details
+                  </Button></Link>}
                   {/* <Checkbox
                     {...label}
                     defaultChecked
@@ -97,3 +124,5 @@ export default function Consultant() {
     </>
   );
 }
+
+
