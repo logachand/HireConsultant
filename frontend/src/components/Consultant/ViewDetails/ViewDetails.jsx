@@ -12,7 +12,7 @@ export default function ViewDetails() {
   console.log(consultantId.id);
 
   Axios.get(
-    `http://localhost:4000/consultant/getConsultantByID/${consultantId.id}`
+    `${REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`
   )
     .then((res) => {
       console.log("Data Is " + res.data.title + " " + res.data.des),
