@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ViewDetails.css";
 import image1 from "./team-1.jpg";
 import Nav from "../../../TestComp/Navbar";
@@ -11,15 +11,19 @@ export default function ViewDetails() {
   const [des, setDes] = useState();
   console.log(consultantId.id);
 
-  Axios.get(
-    `${REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`
-  )
-    .then((res) => {
-      console.log("Data Is " + res.data.title + " " + res.data.des),
-        setTitle(res.data.title);
-      setDes(res.data.des);
-    })
-    .catch((err) => console.log(err));
+
+  useEffect(()=>{
+    Axios.get(
+      `${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`
+    )
+      .then((res) => {
+        console.log("Data Is " + res.data.title + " " + res.data.des),
+          setTitle(res.data.title);
+        setDes(res.data.des);
+      })
+      .catch((err) => console.log(err));
+
+  })
 
   return (
     <>

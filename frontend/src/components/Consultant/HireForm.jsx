@@ -24,7 +24,7 @@ function HireForm() {
 
   const hireFormSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:4000/hiredConsultant/createHiredConsultant", {
+    Axios.post(`${process.env.REACT_APP_SERVER_API}/hiredConsultant/createHiredConsultant`, {
       consultantName,
       userName,
       age,
