@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 import "./css/style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, useNavigate } from "react-router-dom";
-import TestNav from "../TestNav/TestNav";
 
-
-
-export default function TestHome() {
+export default function TopNavbar() {
   
   const navigate = useNavigate()
   const Logout = () =>{
@@ -46,7 +43,6 @@ export default function TestHome() {
             </div>
         </div>
     </div>
-    <TestNav/>
     </>
   );
 }

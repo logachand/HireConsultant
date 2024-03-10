@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const route = require('./routes/user')
 const login_route =  require('./routes/login')
 const consultantRoute = require('./routes/consultantsRoute')
 const hiredConsultantRoute = require('./routes/hiredConsultant')
@@ -30,7 +29,6 @@ app.get('/',(req,res)=>{
 
 
 // Routes
-app.use('/users',route)
 app.use('/userCredentials',login_route)
 app.use('/consultant',consultantRoute)
 app.use('/hiredConsultant',hiredConsultantRoute)

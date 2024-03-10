@@ -1,6 +1,6 @@
 import React from 'react'
-import TestNav from '../../TestNav/TestNav'
 import "./JoinAs.css"
+import MainNavbar from '../Navbar/MainNavbar';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,17 +10,11 @@ import { NavLink } from 'react-router-dom';
 export default function JoinAs() {
   return (
   <>
-  <TestNav/>
+  <MainNavbar/>
   <div>
     <h1 className='title'>Join As a Consultant or User</h1>
     <div className='crad'>
     <Card sx={{ maxWidth: 345 }}>
-      {/* <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-      /> */}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" style={{color:"#fff", backgroundColor:"#172554 ",textAlign:"center",border:"3px solid #172554", borderRadius:"4px"}}>
             Hire Consultant

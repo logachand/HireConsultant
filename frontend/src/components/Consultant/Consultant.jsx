@@ -16,8 +16,9 @@ import Button from "@mui/material/Button";
 // import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Axios from "axios";
 // import Carousel from "react-bootstrap/Carousel";
-import Navbar from "../../TestComp/Navbar";
+import TopNavbar from "../../TestComp/TopNavbar";
 import Testimonal from "../../TestComp/Testimonal";
+import MainNavbar from "../Navbar/MainNavbar"
 import { NavLink,Link } from "react-router-dom";
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -46,16 +47,9 @@ export default function Consultant() {
   
   return (
     <>
-      <Navbar/>
+      <TopNavbar/>
+      <MainNavbar/>
       <Testimonal/>
-      {/* <Typography
-        variant="h4"
-        align="center"
-        style={{ padding: "13px", fontSize: "50px" }}
-      >
-        HIRE THE BEST CONSULTANT
-      </Typography> */}
-
       <Container maxWidth="lg">
         <Grid container spacing={5} style={{ marginTop: "20px" }}>
           {cards.map((card, index) => (
@@ -86,19 +80,30 @@ export default function Consultant() {
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
-                  <NavLink to={"/hireForm"}><Button
+                  { !getToken && !googleLogin ? 
+                  <NavLink to={"/joinAs"}><Button
+                  variant="contained"
+                  size="medium"
+                  style={{ fontSize: "13px" }}
+                  href="/hireForm"
+                > 
+                  Hire Me
+                </Button></NavLink>:
+                  <NavLink to={`/hireForm/${card._id}`}><Button
                     variant="contained"
                     size="medium"
                     style={{ fontSize: "13px" }}
                     href="/hireForm"
                   >
                     Hire Me
-                  </Button></NavLink>
+                  </Button></NavLink>}
+
                   {!getToken && !googleLogin ?
                   <Link to = "/joinAs">
                   <Button 
                     variant="contained"
                     size="medium"
+                    style={{ fontSize: "13px" }}
                   >
                     View Details
                   </Button>
@@ -106,6 +111,7 @@ export default function Consultant() {
                   <Link to = {`/viewDetails/${card._id}`}><Button 
                     variant="contained"
                     size="medium"
+                    style={{ fontSize: "13px" }}
                   >
                     View Details
                   </Button></Link>}

@@ -10,13 +10,23 @@ consultantRoute.post("/createConsultant",async(req,res)=>{     // here upload.si
     const title = req.body.title;
     const des = req.body.des;
     const img = req.body.img;
+    const consultantEmail = req.body.consultantEmail;
+    const consultantPhone = req.body.consultantPhone;
+    const consultantPostion = req.body.consultantPostion;
+    const consultantLinkedIn = req.body.consultantLinkedIn;
 
-    const newConsultant = new consultantModel({title:title,des:des,img:img})
+    const newConsultant = new consultantModel({
+        title:title,
+        des:des,
+        img:img,
+        consultantEmail:consultantEmail,
+        consultantPhone:consultantPhone,
+        consultantPostion:consultantPostion,
+        consultantLinkedIn:consultantLinkedIn,
+    })
     const saveConsultant =  await newConsultant.save()
     .then((consultant)=>{
-        res.json({
-            message:"Card is Created"
-        })
+        res.send(consultant)
     }).catch((err)=>{
         res.json({
             message:`Error is Going on please Check it ${err}`

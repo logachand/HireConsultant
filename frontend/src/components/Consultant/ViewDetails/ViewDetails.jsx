@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ViewDetails.css";
 import image1 from "./team-1.jpg";
-import Nav from "../../../TestComp/Navbar";
+import TopNavbar from "../../../TestComp/TopNavbar";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 
@@ -17,8 +17,7 @@ export default function ViewDetails() {
       `${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`
     )
       .then((res) => {
-        console.log("Data Is " + res.data.title + " " + res.data.des),
-          setTitle(res.data.title);
+        setTitle(res.data.title);
         setDes(res.data.des);
       })
       .catch((err) => console.log(err));
@@ -27,7 +26,7 @@ export default function ViewDetails() {
 
   return (
     <>
-      <Nav />
+      <TopNavbar/>
       <div className="bgColor">
         <div className="wrapper">
           <div className="user-card">

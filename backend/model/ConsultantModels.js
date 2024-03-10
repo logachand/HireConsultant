@@ -4,13 +4,22 @@ const consultantSchema = new mongoose.Schema({
     title:{    
         type:String
     },
+    consultantEmail:{
+        type: String, 
+    },
+    consultantPhone:{
+        type:String
+    },
+    consultantPostion:{
+        type:String
+    },
+    consultantLinkedIn:{
+        type:String
+    },
     des:{
         type:String
     },
     img:{
-        type:String
-    },
-    image:{
         type:String
     }
 });

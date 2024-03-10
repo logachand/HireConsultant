@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { Link, NavLink } from "react-router-dom";
 
-export const TestNav = () => {
+export const MainNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const getToken = window.localStorage.getItem("Token")
   console.log(getToken);
@@ -26,18 +26,20 @@ export const TestNav = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <NavLink to="/">Homeeeee</NavLink>
+          <NavLink to="/" style={{textDecorationLine:"none"}} >Home</NavLink>
         </li>
         <li>
-          <NavLink to="/">Join As Consultant</NavLink>
+          {!getToken && !googleToken ? 
+          <NavLink to="/joinAs" style={{textDecorationLine:"none"}}>Join As Consultant</NavLink>:
+          <NavLink to="/createAsConsutlant" style={{textDecorationLine:"none"}}>Join As Consultant</NavLink>}
         </li>
         <li>
-          <NavLink to="/adminPanel">Pages</NavLink>
+          <NavLink to="/adminPanel" style={{textDecorationLine:"none"}}>adminPanel</NavLink>
         </li>
         <li>
           { !getToken && !googleToken ?  
-          <NavLink to="/login">Login</NavLink> : 
-          <NavLink to="/login" onClick={()=> logout()}>Logout</NavLink>}
+          <NavLink to="/login" style={{textDecorationLine:"none"}} >Login</NavLink> : 
+          <NavLink to="/login"  style={{textDecorationLine:"none"}} onClick={()=> logout()}>Logout</NavLink>}
         </li>
       </ul>
     </nav>
@@ -45,5 +47,5 @@ export const TestNav = () => {
 };
 
 
-export default TestNav
+export default MainNavbar
 

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Con from "react-bootstrap/Container";
-import Navbar from "../../TestComp/Navbar"
+import TopNavbar from "../../TestComp/TopNavbar"
+import MainNavbar from "../Navbar/MainNavbar";
 import Axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SuccessPopUp from "../SuccessPopUp/PopUp";
+import SuccessPopUp from "../SuccessPopUp/PopUp.jsx";
 
 
 
@@ -38,7 +39,8 @@ export default function ReviewConsultant() {
 
   return (
     <>
-      <Navbar/>
+      <TopNavbar/>
+      <MainNavbar/>
       <ToastContainer />
       <Con>
         <h1
@@ -103,10 +105,10 @@ export default function ReviewConsultant() {
           >
             Review Please
           </Button>
-          
-          <SuccessPopUp/>
 
         </Form>
+
+        {/* <SuccessPopUp/> */}
       
       </Con>
     </>
