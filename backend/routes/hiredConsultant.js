@@ -18,22 +18,6 @@ hiredConsultantRoute.post("/createHiredConsultant", async (req, res) => {
             },
           });
         
-          // For Consultation Detail Mail to User
-          // var mailOptions = {
-          //   from: "logachan08@gmail.com",
-          //   to: [hired.userEmail, hired.consultantDetails.consultantEmail],  //  Send Mail for User and Consultant
-          //   subject: `Congratulations Consultant Hired`,
-
-          //   html: `<h1>Kudos to you</h1><br><br>
-          //           <h3>Consutlant Details </h3>
-          //           <p>Consultant Name : ${hired.consultantDetails.consultantName} <br>
-          //           <p>Consultant Email : ${hired.consultantDetails.consultantEmail} <br>
-          //           <p>Consultant Phone Number: ${hired.consultantDetails.consultantPhone} <br>
-          //           <p>Consultation Date : ${hired.consultationDate} <br>
-          //           <p>Gmeet Link : </p> <a href="https://meet.google.com/evq-hvmt-vin?pli=1"> https://meet.google.com/evq-hvmt-vin?pli=1</a>` 
-                
-          // };
-
           const mailOptions = [
             {
               to: hired.userEmail,

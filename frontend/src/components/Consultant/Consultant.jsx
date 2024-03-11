@@ -28,7 +28,11 @@ export default function Consultant() {
 
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`).then((res) =>
+    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`,{
+      headers:{
+        'access-token':localStorage.getItem("Token")
+      }
+    }).then((res) =>
       setCards(res.data)
     );
   });
@@ -36,13 +40,6 @@ export default function Consultant() {
   const getToken = window.localStorage.getItem("Token")
   const googleLogin = window.localStorage.getItem("GoogleLogin")
   console.log(getToken);
-  // const navigate = useNavigate()
-
-  // const viewDetail = (id) => {
-  //     consultantId = id 
-  //     console.log("User ID 1111= "+consultantId );
-  //     value = `/viewDetails/${consultantId}`
-  //   }
 
   
   return (

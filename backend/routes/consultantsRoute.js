@@ -1,7 +1,6 @@
 const express = require('express')
 const consultantRoute = express.Router()
 const consultantModel = require('../model/ConsultantModels')
-const multer = require('multer')
 
 
 // Create Consultant Data
