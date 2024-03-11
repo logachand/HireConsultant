@@ -23,7 +23,7 @@ export default function Log() {
         console.log(res);
         if (res.data.message === "success") {
           window.localStorage.setItem("Token", res.data.loginToken);
-          toast.error("Login Successfully", {
+          toast.success("Login Successfully", {
             onClose: () => {
               navigate("/");
             },

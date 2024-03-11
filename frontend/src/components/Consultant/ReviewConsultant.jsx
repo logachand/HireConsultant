@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Con from "react-bootstrap/Container";
-import TopNavbar from "../../TestComp/TopNavbar"
 import MainNavbar from "../Navbar/MainNavbar";
 import Axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SuccessPopUp from "../SuccessPopUp/PopUp.jsx";
+// import SuccessPopUp from "../SuccessPopUp/PopUp.jsx";
 
 
 
@@ -39,13 +38,13 @@ export default function ReviewConsultant() {
 
   return (
     <>
-      <TopNavbar/>
+      
       <MainNavbar/>
       <ToastContainer />
       <Con>
         <h1
           className="display-4 text-center"
-          style={{ color: "green", padding: "20px" }}
+          style={{color:"#fff", backgroundColor:"#172554 ",fontSize:"40px",textAlign:"center",border:"3px solid #172554", borderRadius:"18px", marginTop:"15px", marginBottom:"30px"}}
         >
           REVIEW THE BEST CONSULTANT
         </h1>
@@ -56,7 +55,7 @@ export default function ReviewConsultant() {
               required
               name="consultantName"
               type="text"
-              placeholder="Enter Consultant Name"
+              placeholder="Consultant Name"
               onChange={(e) => setConsultantName(e.target.value)}
             />
           </Form.Group>
@@ -67,7 +66,7 @@ export default function ReviewConsultant() {
               required
               name="userName"
               type="text"
-              placeholder="Enter your Name"
+              placeholder="Your Name"
               onChange={(e) => setUserName(e.target.value)}
             />
           </Form.Group>
@@ -78,7 +77,7 @@ export default function ReviewConsultant() {
               required
               name="review"
               type="text"
-              placeholder="Enter Your Review"
+              placeholder="Must be characters around 10 words atleast"
               onChange={(e) => {
                 setReview(e.target.value);
               }}

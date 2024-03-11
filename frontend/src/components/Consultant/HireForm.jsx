@@ -13,6 +13,7 @@ function HireForm() {
 
   const navigate = useNavigate()
   const consultantId = useParams();
+  console.log(consultantId); 
   var consultantDetails = {};
   const [consultantName, setConsultantName] = useState();
   const [consultantEmail, setConsultantEmail] = useState();
@@ -53,8 +54,8 @@ function HireForm() {
       consultationDate
     })
       .then((res) => {
-        alert(`The Consultant is Hired -- ${consultantName}`);
-        toast.success(`${consultantName} Hired Successfully`);
+        toast.message(`${consultantName} Hired Successfully`);
+        navigate('/reviewConsutant')
       })
       .catch((err) => console.log(`Error is going on Please Check : ${err}`));
   };

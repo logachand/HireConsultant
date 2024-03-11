@@ -25,9 +25,11 @@ import Testimonal from "./TestComp/Testimonal";
 function App() {
   // useAlan()
   const [id, setId] = useState("");
+  
   const getId = (id) => {
     setId(id);
   };
+
 
   console.log(`ENV VARIABLE : ${process.env.REACT_APP_SERVER_API}`) 
   return (
@@ -46,8 +48,8 @@ function App() {
         <Route path="/createForm" element={<CreateConsultant />} />
         <Route path="/updateForm" element={<UpdateUser id={id} />} />
         <Route path="/createAsConsutlant" element={<CreateAsConsultant/>}/>
-        <Route path="/hireForm/:id" element={<HireForm/>}/>
-        <Route path="/reviewConsutant" element={<ReviewConsultant/>}/>
+        <Route path="/hireForm/:id" element={<HireForm />}/>
+        <Route path="/reviewConsutant" element={<ReviewConsultant />}/>
         <Route path="/viewDetails/:id" element={<ViewDetails/>}/>
         <Route path="/joinAs" element={<JoinAs/>}/>
       </Routes>

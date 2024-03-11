@@ -8,6 +8,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 export default function JoinAs() {
+
+  const getToken = window.localStorage.getItem("Token")
+  const googleToken = window.localStorage.getItem("GoogleLogin")
   return (
   <>
   <MainNavbar/>
@@ -25,7 +28,8 @@ export default function JoinAs() {
         </Typography>
       </CardContent>
       <CardActions>
-       <NavLink to= "/createAsConsutlant"><Button size="small">Join as Consultant</Button></NavLink>
+       {!getToken && ! googleToken ? <NavLink to= "/login"><Button size="small">Join as Consultant</Button></NavLink>:
+       <NavLink to= "/createAsConsutlant"><Button size="small">Join as Consultant</Button></NavLink>}
         <NavLink to = "/login"><Button size="small">Join as User</Button></NavLink>
       </CardActions>
     </Card>
