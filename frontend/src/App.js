@@ -20,10 +20,10 @@ import TestHome from "./TestComp/TopNavbar.jsx";
 import Testimonal from "./TestComp/Testimonal";
 
 
-// import useAlan from "./hooks/Alan"
+import useAlan from "./hooks/Alan"
 
 function App() {
-  // useAlan()
+  useAlan()
   const [id, setId] = useState("");
   
   const getId = (id) => {

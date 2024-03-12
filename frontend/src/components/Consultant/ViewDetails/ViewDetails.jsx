@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ViewDetails.css";
 import image1 from "./team-1.jpg";
 import TopNavbar from "../../../TestComp/TopNavbar";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import Axios from "axios";
 
 export default function ViewDetails() {
@@ -57,6 +57,7 @@ export default function ViewDetails() {
                 I'm a consultant and Help the peoples to solve the problems for them and 
                 give the Better solution from my end 
               </p>
+              <Link to="/reviewConsutant"><button style={{marginTop:"3px",padding:"2px", borderRadius:"5px"}}>Review</button></Link>
             </div>
           </div>
         </div>

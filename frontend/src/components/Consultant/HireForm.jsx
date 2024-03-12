@@ -58,6 +58,7 @@ function HireForm() {
       consultationDate
     })
       .then((res) => {
+        alert(`Consultant Hired Successfully - ${consultantName} `)
         toast.message(`${consultantName} Hired Successfully`);
         navigate('/reviewConsutant')
       })

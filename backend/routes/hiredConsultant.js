@@ -22,12 +22,12 @@ hiredConsultantRoute.post("/createHiredConsultant", async (req, res) => {
             {
               to: hired.userEmail,
               subject: `Congratulations, You Have Hired a Consultant`,
-              html: `<h1>Congratulations!</h1><p>You have successfully hired a consultant. Please find the details below:</p><p>Consultant Name: ${hired.consultantDetails.consultantName}</p><p>Consultant Email: ${hired.consultantDetails.consultantEmail}</p><p>Consultation Date: ${hired.consultationDate}</p><p>Gmeet Link: <a href="https://meet.google.com/evq-hvmt-vin?pli=1">https://meet.google.com/evq-hvmt-vin?pli=1</a></p>`
+              html: `<h1>Congratulations!</h1><p>You have successfully hired a consultant 🎉. Please find the details below:</p><p>Consultant Name: ${hired.consultantDetails.consultantName}</p><p>Consultant Email: ${hired.consultantDetails.consultantEmail}</p><p>Consultation Date: ${hired.consultationDate}</p><p>Gmeet Link: <a href="https://meet.google.com/evq-hvmt-vin?pli=1">https://meet.google.com/evq-hvmt-vin?pli=1</a></p>`
             },
             {
               to: hired.consultantDetails.consultantEmail,
               subject: `Congratulations, You Have Been Hired as a Consultant`,
-              html: `<h1>Congratulations!</h1><p>You have been hired as a consultant. Please find the details below:</p><p>UserName: ${hired.userName}</p><p>User Email: ${hired.userEmail}</p><p>User Phone Number: ${hired.userPhone}</p><p>Consultation Date: ${hired.consultationDate}</p><p>Gmeet Link: <a href="https://meet.google.com/evq-hvmt-vin?pli=1">https://meet.google.com/evq-hvmt-vin?pli=1</a></p>`
+              html: `<h1>Congratulations!</h1><p>You have been hired as a consultant🎉. Please find the details below:</p><p>UserName: ${hired.userName}</p><p>User Email: ${hired.userEmail}</p><p>User Phone Number: ${hired.userPhone}</p><p>Consultation Date: ${hired.consultationDate}</p><p>Gmeet Link: <a href="https://meet.google.com/evq-hvmt-vin?pli=1">https://meet.google.com/evq-hvmt-vin?pli=1</a></p>`
             }
           ];
 

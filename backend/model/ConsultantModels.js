@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const consultantSchema = new mongoose.Schema({
-    title:{    
+    title:{      // Consultant Name 
         type:String
     },
     consultantEmail:{
