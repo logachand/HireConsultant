@@ -8,16 +8,23 @@ import Axios from "axios";
 export default function ViewDetails() {
   const consultantId = useParams();
   const [title, setTitle] = useState();
+  const [consultantEmail, setConsultantEmail] = useState()
+
   const [des, setDes] = useState();
   console.log(consultantId.id);
 
 
   useEffect(()=>{
     Axios.get(
-      `${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`
+      `${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`,{
+        headers:{
+          'access-token':localStorage.getItem("Token")
+        }
+      }
     )
       .then((res) => {
         setTitle(res.data.title);
+        setConsultantEmail(res.data.consultantEmail)
         setDes(res.data.des);
       })
       .catch((err) => console.log(err));
@@ -36,7 +43,7 @@ export default function ViewDetails() {
             <div className="user-card-info">
               <h2>{title}</h2>
               <p>
-                <span>Email:</span> example@example.com
+                <span>Email:</span> {consultantEmail}
               </p>
               <p>
                 <span>Occupation:</span> Web Developer
@@ -46,9 +53,9 @@ export default function ViewDetails() {
                 {des}
               </p>
               <p>
-                <span>About me:</span> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
+                <span>About me:</span> 
+                I'm a consultant and Help the peoples to solve the problems for them and 
+                give the Better solution from my end 
               </p>
             </div>
           </div>

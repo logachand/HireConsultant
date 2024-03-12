@@ -32,13 +32,16 @@ export default function CreateAsConsultant() {
         consultantPostion:consultantPostion,
         des: des,
         img: img,
-
+      },{
+        headers:{
+          'access-token':localStorage.getItem("Token")
+        }
       }
     )
       .then((res) => {
         toast.success("Consultant Created",{
           onclose:()=>{
-            navigate ('/')
+            navigate('/')
           }
         })
       })

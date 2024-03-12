@@ -17,7 +17,11 @@ function UpdateUser({ id }) {
     img:'',
   })
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${id}`).
+    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${id}`,{
+      headers:{
+        'access-token':localStorage.getItem("Token")
+      }
+    }).
     then(res => {
       setValues({...values,title:res.data.title,des:res.data.des,img:res.data.img})
     })
@@ -28,7 +32,11 @@ function UpdateUser({ id }) {
 
   const updateHandler = (id) => {
     Axios.put(`http://localhost:4000/consultant/updateConsultant/${id}`, 
-    values
+    values,{
+      headers:{
+        'access-token':localStorage.getItem("Token")
+      }
+    }
     )
       .then((res) => {
         

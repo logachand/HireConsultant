@@ -27,7 +27,11 @@ function HireForm() {
 
 
   useEffect(()=>{
-    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`)
+    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`,{
+      headers:{
+        'access-token':localStorage.getItem("Token")
+      }
+    })
     .then((res) => {
       setConsultantName(res.data.title);  
       setConsultantEmail(res.data.consultantEmail);

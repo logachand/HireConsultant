@@ -48,6 +48,7 @@ export default function Consultant() {
       <MainNavbar/>
       <Testimonal/>
       <Container maxWidth="lg">
+      <h1 className="display-4 text-center" style={{color:"#fff", backgroundColor:"#172554 ",textAlign:"center",border:"3px solid #172554", borderRadius:"4px", marginTop:"15px"}}>Consultant List</h1>
         <Grid container spacing={5} style={{ marginTop: "20px" }}>
           {cards.map((card, index) => (
             <Grid item xs={12} sm={4} ms={4} key={index}>
