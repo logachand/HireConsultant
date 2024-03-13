@@ -1,50 +1,84 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Con from "react-bootstrap/Container";
 import MainNavbar from "../Navbar/MainNavbar";
 import Axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { useParams} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 // import SuccessPopUp from "../SuccessPopUp/PopUp.jsx";
-
-
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
 
 export default function ReviewConsultant() {
-  
-
   // Form data State
+  const consultantId = useParams();
   const [consultantName, setConsultantName] = useState();
   const [userName, setUserName] = useState();
   const [review, setReview] = useState();
-  const [ratings, setRatings] = useState();
+  const [points, setPoints] = useState();
+  const [value, setValue] = React.useState(2);
+
+
+  useEffect(()=>{
+    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`,{
+      headers:{
+        'access-token':localStorage.getItem("Token")
+      }
+    })
+    .then((res) => {
+     console.log(res.data);
+     setConsultantName(res.data.title)
+
+    })
+    .catch((err) => console.log(err));
+  })
 
   const reviewFormSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:4000/reviewConsultant/createReview", {
+    Axios.post(`${process.env.REACT_APP_SERVER_API}/reviewConsultant/createReview`, {
       consultantName,
       userName,
       review,
-      ratings,
+      points,
+      value
     })
       .then((res) => {
-        console.log(res.data.review);
         toast.success("Thank You", {
-          onClose: () => {},
+          onClose: () => {
+            alert("Review Donee Kudos to You")
+          },
         });
       })
       .catch((err) => console.log(`Error is going on please check it ${err}`));
+
+      Axios.put(`${process.env.REACT_APP_SERVER_API}/consultant/updateConsultant/${consultantId.id}`,{
+        ratings:value
+      },{
+        headers:{
+          'access-token':localStorage.getItem("Token")
+        }
+      })
   };
 
   return (
     <>
-      
-      <MainNavbar/>
+      <MainNavbar />
       <ToastContainer />
       <Con>
         <h1
           className="display-4 text-center"
-          style={{color:"#fff", backgroundColor:"#172554 ",fontSize:"40px",textAlign:"center",border:"3px solid #172554", borderRadius:"18px", marginTop:"15px", marginBottom:"30px"}}
+          style={{
+            color: "#fff",
+            backgroundColor: "#172554 ",
+            fontSize: "40px",
+            textAlign: "center",
+            border: "3px solid #172554",
+            borderRadius: "18px",
+            marginTop: "15px",
+            marginBottom: "30px",
+          }}
         >
           REVIEW THE BEST CONSULTANT
         </h1>
@@ -56,7 +90,7 @@ export default function ReviewConsultant() {
               name="consultantName"
               type="text"
               placeholder="Consultant Name"
-              onChange={(e) => setConsultantName(e.target.value)}
+              value={consultantName}
             />
           </Form.Group>
 
@@ -83,15 +117,23 @@ export default function ReviewConsultant() {
               }}
             />
           </Form.Group>
+          <Typography component="legend">Ratings</Typography>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          />
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Enter Ratings:</Form.Label>
+            <Form.Label>Enter Points:</Form.Label>
             <Form.Control
               required
-              name="ratings"
+              name="points"
               type="number"
-              placeholder="Enter Your Ratings 1 - 10"
+              placeholder="Enter Your Points 1 - 10"
               onChange={(e) => {
-                setRatings(e.target.value);
+                setPoints(e.target.value);
               }}
             />
           </Form.Group>
@@ -100,15 +142,12 @@ export default function ReviewConsultant() {
             variant="primary"
             type="submit"
             style={{ backgroundColor: "blue", marginTop: "7px" }}
-  
           >
             Review Please
           </Button>
-
         </Form>
 
         {/* <SuccessPopUp/> */}
-      
       </Con>
     </>
   );

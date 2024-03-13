@@ -5,15 +5,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { GoogleLogin } from "@react-oauth/google";
 import MainNavbar from "../Navbar/MainNavbar"
+import { Button } from "@mui/material";
 
 
 export default function Log() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
+  var clientId
+  console.log("HEllo");
   const loginHandler = (e) => {
     e.preventDefault();
-
     Axios.post(`${process.env.REACT_APP_SERVER_API}/userCredentials/login`, {
       email,
       password,
@@ -34,8 +36,25 @@ export default function Log() {
         }
       })
       .catch((err) => console.log(`${err}`));
-  };
 
+
+      
+  };
+  // Google Login
+  function GFun(){
+    console.log("Working");
+    console.log("client ID  Before Axios : " + clientId);
+
+  }
+  Axios.post(`${process.env.REACT_APP_SERVER_API}/userCredentials/googleLogin`,{
+    clientId
+  })
+  .then((res)=>{
+    console.log(res.data.googleToken);
+  })
+  .catch((err)=>{
+    console.log(`Error is Going on Please check it ${err}`);
+  })
   return (
     <>
     <MainNavbar/>
@@ -85,10 +104,13 @@ export default function Log() {
             <p>
               Don't have account? <Link to ="/signup">Sign Up</Link>
             </p>
-            <div>
-            <GoogleLogin 
+            <Button onClick={()=>GFun()}>Check
+            <GoogleLogin   
               onSuccess={(credentialResponse) => {
                 console.log(credentialResponse);
+                console.log("Google Client ID" + credentialResponse.clientId);
+                clientId = credentialResponse.clientId
+                console.log("Google client ID checking ::  " + clientId);
                 window.localStorage.setItem("GoogleLogin", true);
                 toast.success("Google Login", {
                   onClose: () => {
@@ -100,6 +122,10 @@ export default function Log() {
                 console.log("Login Failed");
               }}
             />
+
+            </Button>
+            <div>
+            
             </div>
           </div>
         </div>
@@ -107,3 +133,5 @@ export default function Log() {
     </>
   );
 }
+
+

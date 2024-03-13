@@ -57,7 +57,7 @@ export default function ViewDetails() {
                 I'm a consultant and Help the peoples to solve the problems for them and 
                 give the Better solution from my end 
               </p>
-              <Link to="/reviewConsutant"><button style={{marginTop:"3px",padding:"2px", borderRadius:"5px"}}>Review</button></Link>
+              <Link to={`/reviewConsutant/${consultantId.id}`}><button style={{marginTop:"3px",padding:"2px", borderRadius:"5px"}}>Review</button></Link>
             </div>
           </div>
         </div>

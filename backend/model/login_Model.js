@@ -12,8 +12,12 @@ const loginUser =  new mongoose.Schema({
     },
     password:{
         type:String
+    },
+    clientId:{
+        type:String
     }
 })
+
 
 const LoginModel =  mongoose.model('logins',loginUser)
 

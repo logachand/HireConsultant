@@ -49,7 +49,7 @@ function App() {
         <Route path="/updateForm" element={<UpdateUser id={id} />} />
         <Route path="/createAsConsutlant" element={<CreateAsConsultant/>}/>
         <Route path="/hireForm/:id" element={<HireForm />}/>
-        <Route path="/reviewConsutant" element={<ReviewConsultant />}/>
+        <Route path="/reviewConsutant/:id" element={<ReviewConsultant />}/>
         <Route path="/viewDetails/:id" element={<ViewDetails/>}/>
         <Route path="/joinAs" element={<JoinAs/>}/>
       </Routes>

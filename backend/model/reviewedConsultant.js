@@ -1,5 +1,6 @@
 const mongoose =  require('mongoose')
 
+
 const reviewConsutant =  new mongoose.Schema({
     consultantName :{
         type : String
@@ -10,10 +11,14 @@ const reviewConsutant =  new mongoose.Schema({
     review:{
         type:String
     },
-    ratings:{
+    points:{
+        type:Number
+    },
+    value:{
         type:Number
     }
 })
+
 
 const reviewConsutantModel =  mongoose.model('reviewConsultant',reviewConsutant)
 

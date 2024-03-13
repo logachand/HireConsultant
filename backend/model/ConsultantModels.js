@@ -21,6 +21,10 @@ const consultantSchema = new mongoose.Schema({
     },
     img:{
         type:String
+    },
+    ratings:{
+        type:Number,
+        default:0
     }
 });
 

@@ -120,4 +120,20 @@ login_route.post("/resetPassword/:id/:token", (req, res) => {
   });
 });
 
+
+// Google Login
+
+login_route.post('/googleLogin',(req,res)=>{
+  //clientId: "2137708488-i126ndn70j48ultu0r16teff3e7iipoc.apps.googleusercontent.com"
+  const clientId = req.body.clientId
+  const client ={
+    client: clientId
+  }
+  googleToken = jwt.sign(client,process.env.GOOGLE_SECRET, 
+    { expiresIn: "1d" })
+    res.json({
+      googleToken:googleToken
+    })
+})
+
 module.exports = login_route;
