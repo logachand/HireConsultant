@@ -35,7 +35,7 @@ export default function Consultant() {
   });
 
   const getToken = window.localStorage.getItem("Token");
-  const googleLogin = window.localStorage.getItem("GoogleLogin");
+  const googleLogin = window.localStorage.getItem("Token")
   console.log(getToken);
 
   return (

@@ -20,7 +20,7 @@ import TestHome from "./TestComp/TopNavbar.jsx";
 import Testimonal from "./TestComp/Testimonal";
 
 
-import useAlan from "./hooks/Alan"
+import useAlan from "./hooks/Alan"  
 
 function App() {
   useAlan()
@@ -30,8 +30,6 @@ function App() {
     setId(id);
   };
 
-
-  console.log(`ENV VARIABLE : ${process.env.REACT_APP_SERVER_API}`) 
   return (
     <BrowserRouter>
       <Routes>

@@ -66,7 +66,6 @@ login_route.post("/forgotPassword", async (req, res) => {
     //  token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET, { expiresIn: "1d" });
 
     token = generateToken(user)
-    console.log(token);
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -123,17 +122,20 @@ login_route.post("/resetPassword/:id/:token", (req, res) => {
 
 // Google Login
 
-login_route.post('/googleLogin',(req,res)=>{
+login_route.post('/googleLogin',async(req,res)=>{
   //clientId: "2137708488-i126ndn70j48ultu0r16teff3e7iipoc.apps.googleusercontent.com"
   const clientId = req.body.clientId
-  const client ={
-    client: clientId
-  }
-  googleToken = jwt.sign(client,process.env.GOOGLE_SECRET, 
-    { expiresIn: "1d" })
-    res.json({
-      googleToken:googleToken
-    })
+  await LoginModel.findOne({email:"logachan08@gmail.com"})
+  .then((user)=>{
+    if(!user){
+      res.status(404).send({ status: "User Not exists" });
+    }
+
+    token = generateToken(user)
+    console.log(token);
+    res.json({message:"success",googleToken:token,clientId});
+
+  })
 })
 
 module.exports = login_route;
