@@ -18,6 +18,7 @@ import JoinAs from "./components/JoinAs/JoinAs.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import TestHome from "./TestComp/TopNavbar.jsx";
 import Testimonal from "./TestComp/Testimonal";
+import SuccessPopUp from "./components/SuccessPopUp/PopUp.jsx"
 
 
 import useAlan from "./hooks/Alan"  
@@ -50,6 +51,7 @@ function App() {
         <Route path="/reviewConsutant/:id" element={<ReviewConsultant />}/>
         <Route path="/viewDetails/:id" element={<ViewDetails/>}/>
         <Route path="/joinAs" element={<JoinAs/>}/>
+        <Route path="/pop" element={<SuccessPopUp/>}/>
       </Routes>
     </BrowserRouter>
 

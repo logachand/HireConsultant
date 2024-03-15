@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const morgan=require('morgan')
 const login_route =  require('./routes/login')
 const consultantRoute = require('./routes/consultantsRoute')
 const hiredConsultantRoute = require('./routes/hiredConsultant')
@@ -36,7 +35,7 @@ app.get('/',(req,res)=>{
 
 // Routes
 app.use('/userCredentials',login_route)
-app.use('/consultant',requireAuth,consultantRoute)
+app.use('/consultant',consultantRoute)
 app.use('/hiredConsultant',hiredConsultantRoute)
 app.use('/reviewConsultant',reviewConsultantRoute)
 

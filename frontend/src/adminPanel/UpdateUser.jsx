@@ -52,6 +52,7 @@ function UpdateUser({ id }) {
     
   };
 
+  
   return (
     <div>
       <Navigation />
