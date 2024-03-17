@@ -8,12 +8,12 @@ import "react-toastify/dist/ReactToastify.css";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import MainNavbar from "../Navbar/MainNavbar";
+import { PopupButton } from "react-calendly";
 
 function HireForm() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const consultantId = useParams();
-  console.log(consultantId); 
+  console.log(consultantId);
   var consultantDetails = {};
   const [consultantName, setConsultantName] = useState();
   const [consultantEmail, setConsultantEmail] = useState();
@@ -23,56 +23,71 @@ function HireForm() {
   const [userPhone, setUserPhone] = useState();
   const [age, setAge] = useState();
   const [hear, setHear] = useState();
-  const [consultationDate , setConsultantionDate] = useState();
+  const [consultationDate, setConsultantionDate] = useState();
 
-
-  useEffect(()=>{
-    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`,{
-      headers:{
-        'access-token':localStorage.getItem("Token")
+  useEffect(() => {
+    Axios.get(
+      `${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${consultantId.id}`,
+      {
+        headers: {
+          "access-token": localStorage.getItem("Token"),
+        },
       }
-    })
-    .then((res) => {
-      setConsultantName(res.data.title);  
-      setConsultantEmail(res.data.consultantEmail);
-      setConsultantPhone(res.data.consultantPhone);
-      console.log(res.data.title+ "  "+ consultantName);
-    })
-    .catch((err) => console.log(err));
-
-  })
+    )
+      .then((res) => {
+        setConsultantName(res.data.title);
+        setConsultantEmail(res.data.consultantEmail);
+        setConsultantPhone(res.data.consultantPhone);
+        console.log(res.data.title + "  " + consultantName);
+      })
+      .catch((err) => console.log(err));
+  });
 
   const hireFormSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${process.env.REACT_APP_SERVER_API}/hiredConsultant/createHiredConsultant`, {
-      userName,
-      userEmail,
-      userPhone,
-      age,
-      hear,
-      consultantDetails:{
-        consultantName,
-        consultantEmail,
-        consultantPhone
-      },
-      consultationDate
-    })
+    Axios.post(
+      `${process.env.REACT_APP_SERVER_API}/hiredConsultant/createHiredConsultant`,
+      {
+        userName,
+        userEmail,
+        userPhone,
+        age,
+        hear,
+        consultantDetails: {
+          consultantName,
+          consultantEmail,
+          consultantPhone,
+        },
+        consultationDate,
+      }
+    )
       .then((res) => {
-        alert(`Consultant Hired Successfully - ${consultantName} `)
+        alert(`Consultant Hired Successfully - ${consultantName} `);
         toast.message(`${consultantName} Hired Successfully`);
-        navigate('/reviewConsutant')
+        navigate("/reviewConsutant");
       })
       .catch((err) => console.log(`Error is going on Please Check : ${err}`));
   };
 
   return (
     <>
-      <MainNavbar/>
+      <MainNavbar />
       <ToastContainer />
       <Con>
-      <h1 className="display-4 text-center" style={{color:"#fff", backgroundColor:"#172554 ",textAlign:"center",border:"3px solid #172554", borderRadius:"4px", marginTop:"15px"}}>Hire Consultant Form</h1>
+        <h1
+          className="display-4 text-center"
+          style={{
+            color: "#fff",
+            backgroundColor: "#172554 ",
+            textAlign: "center",
+            border: "3px solid #172554",
+            borderRadius: "4px",
+            marginTop: "15px",
+          }}
+        >
+          Hire Consultant Form
+        </h1>
         <Form onSubmit={hireFormSubmit}>
-
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Enter Your Name :</Form.Label>
             <Form.Control
@@ -131,6 +146,16 @@ function HireForm() {
             />
           </Form.Group>
 
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label> Shedule For Consultation</Form.Label><br/>
+            
+            <PopupButton
+              url="https://calendly.com/logachan08/30min"
+              rootElement={document.getElementById("root")}
+              text="Click here to schedule!"
+              styles={{backgroundColor:"#00a2ff", color:"#ffff",padding:"5px",fontFamily:"timesNewRoman", borderRadius:"10px"}}
+            />
+          </Form.Group>
           <Button
             variant="primary"
             type="submit"
@@ -145,5 +170,3 @@ function HireForm() {
 }
 
 export default HireForm;
-
-

@@ -34,8 +34,8 @@ hiredConsultantRoute.post("/createHiredConsultant", async (req, res) => {
                     <p>User Email: ${hired.userEmail}</p>
                     <p>User Phone Number: ${hired.userPhone}</p>
                     <p>Consultation Date: ${hired.consultationDate}</p>
-                    <p>Accpet or Decline : <a href="http://localhost:4000/hiredConsultant/confirmationEmailAccept" style = "color:green" >Accept</a> &nbsp;&nbsp;&nbsp;
-                    <a href="http://localhost:4000/hiredConsultant/confirmationEmailDecline" style = "color:red" >Decline</a></p><br> 
+                    <p>Accpet or Decline : <a href="${process.env.SERVER}/hiredConsultant/confirmationEmailAccept" style = "color:green" >Accept</a> &nbsp;&nbsp;&nbsp;
+                    <a href="${process.env.SERVER}/hiredConsultant/confirmationEmailDecline" style = "color:red" >Decline</a></p><br> 
                     <p>Gmeet Link: <a href="https://meet.google.com/evq-hvmt-vin?pli=1">https://meet.google.com/evq-hvmt-vin?pli=1</a></p>`
             }
           ];
