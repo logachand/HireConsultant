@@ -132,10 +132,10 @@ login_route.post('/googleLogin',async(req,res)=>{
     }
 
     token = generateToken(user)
-    console.log(token);
     res.json({message:"success",googleToken:token,clientId});
 
   })
 })
 
 module.exports = login_route;
+

@@ -21,10 +21,8 @@ import Testimonal from "./TestComp/Testimonal";
 import SuccessPopUp from "./components/SuccessPopUp/PopUp.jsx"
 
 
-import useAlan from "./hooks/Alan"  
-
 function App() {
-  useAlan()
+
   const [id, setId] = useState("");
   
   const getId = (id) => {

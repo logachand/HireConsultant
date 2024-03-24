@@ -27,7 +27,6 @@ export default function Testimonal() {
         </div>
       </div> */}
 
-
       {/* <!-- Team Start --> */}
       <div className="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
         <div
