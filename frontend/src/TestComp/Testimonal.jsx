@@ -44,10 +44,10 @@ export default function Testimonal() {
                       <h1 className="display-2 text-light mb-5 animated slideInDown" style={{fontSize:"35px", fontFamily:"sans-serif", fontStyle:""}}>
                         Hire The Best Consultant
                       </h1>
-                      <a href="https://linkedin.com" className="btn btn-primary py-sm-3 px-sm-5">
+                      <a href="https://linkedin.com" className="btn btn-primary py-sm-3 px-sm-5" style={{textDecorationLine:"none"}}>
                         Learn More
                       </a>
-                      <a href="https://linkedin.com" className="btn btn-light py-sm-3 px-sm-5 ms-3">
+                      <a href="https://linkedin.com" className="btn btn-light py-sm-3 px-sm-5 ms-3" style={{textDecorationLine:"none"}}>
                         Our Consultants
                       </a>
                     </div>

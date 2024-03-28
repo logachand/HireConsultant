@@ -43,6 +43,16 @@ consultantRoute.get("/getConsultant",async(req,res)=>{
     .catch((err)=>res.json({status:"Fails Please Check the Route"}))
 })
 
+consultantRoute.get("/getConsultantCount",async(req,res)=>{
+    try {
+        const consultants = await consultantModel.find();
+        const totalConsultants = await consultantModel.countDocuments();
+
+        res.json({ totalConsultants });
+    } catch (err) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+})
 
 //get Consultant by ID   
 consultantRoute.get('/getConsultantByID/:id', async (req, res) => {

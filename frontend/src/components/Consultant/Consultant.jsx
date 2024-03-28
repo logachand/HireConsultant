@@ -21,6 +21,7 @@ import Testimonal from "../../TestComp/Testimonal";
 import MainNavbar from "../Navbar/MainNavbar";
 import Rating from "@mui/material/Rating";
 import { NavLink, Link } from "react-router-dom";
+import Footer from "../../Footer/Footer"
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -148,6 +149,7 @@ export default function Consultant() {
           ))}
         </Grid>
       </Container>
+      {/* <Footer/> */}
     </>
   );
 }

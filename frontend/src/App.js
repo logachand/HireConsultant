@@ -19,6 +19,8 @@ import "react-toastify/dist/ReactToastify.css";
 import TestHome from "./TestComp/TopNavbar.jsx";
 import Testimonal from "./TestComp/Testimonal";
 import SuccessPopUp from "./components/SuccessPopUp/PopUp.jsx"
+import MainAdmin from "./Admin/MainAdmin.jsx"
+
 
 
 function App() {
@@ -50,10 +52,9 @@ function App() {
         <Route path="/viewDetails/:id" element={<ViewDetails/>}/>
         <Route path="/joinAs" element={<JoinAs/>}/>
         <Route path="/pop" element={<SuccessPopUp/>}/>
+        <Route path="/mainAdmin" element={<MainAdmin/>}/> 
       </Routes>
     </BrowserRouter>
-
-
 
   );
 }

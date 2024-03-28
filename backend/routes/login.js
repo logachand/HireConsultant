@@ -22,6 +22,19 @@ login_route.post("/register", async (req, res) => {
 });
 
 
+// get Registered User Count 
+
+login_route.get("/getUserCount", async (req, res) =>{
+
+  await LoginModel.countDocuments()
+  .then((user) => res.json({
+    totalUser: user
+  }))
+  .catch((err) => res.json(err));
+
+})
+
+
 // login Route
 
 login_route.post("/login", async (req, res) => {
