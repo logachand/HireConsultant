@@ -9,54 +9,75 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function UpdateUser({ id }) {
-
   const navigate = useNavigate();
-  const [values,setValues] = useState({
-    title:'',
-    des:'',
-    img:'',
-  })
+  const [values, setValues] = useState({
+    title: "",
+    consultantEmail: "",
+    consultantPhone: "",
+    consultantLinkedIn: "",
+    consultantPostion: "",
+    des: "",
+    img: "",
+  });
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${id}`,{
-      headers:{
-        'access-token':localStorage.getItem("Token")
+    Axios.get(
+      `${process.env.REACT_APP_SERVER_API}/consultant/getConsultantByID/${id}`,
+      {
+        headers: {
+          "access-token": localStorage.getItem("Token"),
+        },
       }
-    }).
-    then(res => {
-      setValues({...values,title:res.data.title,des:res.data.des,img:res.data.img})
-    })
-    .catch(err =>console.log(err))
-
-  }, []);
-
-
-  const updateHandler = (id) => {
-    Axios.put(`http://localhost:4000/consultant/updateConsultant/${id}`, 
-    values,{
-      headers:{
-        'access-token':localStorage.getItem("Token")
-      }
-    }
     )
       .then((res) => {
-        
-        setValues({...values,title:res.data.title,des:res.data.des,img:res.data.img})
+        setValues({
+          ...values,
+          title: res.data.title,
+          consultantEmail: res.data.consultantEmail,
+          consultantPhone: res.data.consultantPhone,
+          consultantLinkedIn: res.data.consultantLinkedIn,
+          consultantPostion: res.data.consultantPostion,
+          des: res.data.des,
+          img: res.data.img,
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const updateHandler = (id) => {
+    Axios.put(
+      `http://localhost:4000/consultant/updateConsultant/${id}`,
+      values,
+      {
+        headers: {
+          "access-token": localStorage.getItem("Token"),
+        },
+      }
+    )
+      .then((res) => {
+        setValues({
+          ...values,
+          title: res.data.title,
+          consultantEmail: res.data.consultantEmail,
+          consultantPhone: res.data.consultantPhone,
+          consultantLinkedIn: res.data.consultantLinkedIn,
+          consultantPostion: res.data.consultantPostion,
+          des: res.data.des,
+          img: res.data.img,
+        });
         // alert("Consultant is Updated")
-        toast.success("Consultant is Updated",{
-          onClose:()=>{
+        toast.success("Consultant is Updated", {
+          onClose: () => {
             navigate("/");
-          }
-        })
+          },
+        });
       })
       .catch((err) => console.log(`Error :${err}`));
-    
   };
 
-  
   return (
     <div>
       <Navigation />
-      <ToastContainer/>
+      <ToastContainer />
       <Container>
         <h1 className="display-4 text-center">Update Consultant</h1>
         <Form
@@ -71,10 +92,50 @@ function UpdateUser({ id }) {
               type="text"
               placeholder="Enter Consultant Name"
               value={values.title}
-              onChange={(e) => setValues({...values,title:e.target.value})}
+              onChange={(e) => setValues({ ...values, title: e.target.value })}
+            />
+          </Form.Group>
+
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter Your Email </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Consultant Email"
+              onChange={(e) => setValues({...values, consultantEmail:e.target.value})}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter your Phone Number</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Consultant Phone Number"
+              onChange={(e) => setValues({...values,consultantPhone: e.target.value})}
               
             />
           </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter Your Profession</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your Profession"
+              onChange={(e) => setValues({...values,consultantPostion: e.target.value})}
+              
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter Your LinkedIn Id (Optional)</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter LinkedIn ID"
+              onChange={(e) => setValues({...values, consultantLinkedIn: e.target.value})}
+              
+            />
+          </Form.Group>
+
 
           <Form.Group className="mb-4" controlId="formBasicPassword">
             <Form.Label>Enter Specialist</Form.Label>
@@ -82,8 +143,7 @@ function UpdateUser({ id }) {
               type="text"
               placeholder="Specialist"
               value={values.des}
-              onChange={(e) => setValues({...values,des:e.target.value})}
-              
+              onChange={(e) => setValues({ ...values, des: e.target.value })}
             />
           </Form.Group>
 
@@ -93,8 +153,7 @@ function UpdateUser({ id }) {
               type="text"
               placeholder="Specialist"
               value={values.img}
-              onChange={(e) => setValues({...values,img:e.target.value})}
-              
+              onChange={(e) => setValues({ ...values, img: e.target.value })}
             />
           </Form.Group>
 

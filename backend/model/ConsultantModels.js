@@ -16,6 +16,10 @@ const consultantSchema = new mongoose.Schema({
     consultantLinkedIn:{
         type:String
     },
+    hiredMembers : {
+        type:Number,
+        default:0
+    },
     des:{
         type:String
     },

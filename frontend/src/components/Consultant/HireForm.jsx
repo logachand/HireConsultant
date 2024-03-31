@@ -18,6 +18,7 @@ function HireForm() {
   const [consultantName, setConsultantName] = useState();
   const [consultantEmail, setConsultantEmail] = useState();
   const [consultantPhone, setConsultantPhone] = useState();
+  const [consultantHiredMembers, setConsultantHiredMembers] = useState();
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
   const [userPhone, setUserPhone] = useState();
@@ -38,12 +39,14 @@ function HireForm() {
         setConsultantName(res.data.title);
         setConsultantEmail(res.data.consultantEmail);
         setConsultantPhone(res.data.consultantPhone);
+        setConsultantHiredMembers(res.data.hiredMembers);
         console.log(res.data.title + "  " + consultantName);
       })
       .catch((err) => console.log(err));
   });
 
   const hireFormSubmit = (e) => {
+    
     e.preventDefault();
     Axios.post(
       `${process.env.REACT_APP_SERVER_API}/hiredConsultant/createHiredConsultant`,
@@ -67,6 +70,10 @@ function HireForm() {
         navigate("/reviewConsutant");
       })
       .catch((err) => console.log(`Error is going on Please Check : ${err}`));
+
+      Axios.put(`${process.env.REACT_APP_SERVER_API}/consultant/updateConsultant/${consultantId.id}`,{
+        hiredMembers:consultantHiredMembers + 1
+      })
   };
 
   return (

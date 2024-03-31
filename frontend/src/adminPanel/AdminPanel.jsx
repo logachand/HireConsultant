@@ -19,13 +19,17 @@ function AdminPanel({ getId }) {
 
   const deleteUser = (e) => {
     console.log(`User ID from MongoDB : ${e}`);
-    Axios.delete(`${process.env.REACT_APP_SERVER_API}/consultant/deleteConsultant/${e}`,{
-      headers:{
-        'access-token':localStorage.getItem("Token")
-      }
-    })
-      .then(() => alert("User is Deleted Successsfully"))
-      .catch((err) => console.log(`Error : ${err}`));
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+    if(confirmDelete){
+      Axios.delete(`${process.env.REACT_APP_SERVER_API}/consultant/deleteConsultant/${e}`,{
+        headers:{
+          'access-token':localStorage.getItem("Token")
+        }
+      })
+        .then(() => alert("User is Deleted Successsfully"))
+        .catch((err) => console.log(`Error : ${err}`));
+    }
+   
   };
 
   const updateUser = (id) => {

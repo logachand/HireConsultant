@@ -72,6 +72,7 @@ consultantRoute.get('/getConsultantByID/:id', async (req, res) => {
 
 // updateConsultant 
 
+
 consultantRoute.put('/updateConsultant/:id',(req,res)=>{
   
     if(!req.body){
