@@ -7,14 +7,12 @@ import {
   CardActions,
 } from "@mui/material";
 
-
 import Container from "@mui/material/Container";
-// import Data from "./Data.json";
 import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+// import LinkedInIcon from '@material-ui/icons/LinkedIn';
 // import Checkbox from "@mui/material/Checkbox";
 // import Navigation from "../Navigation";
 // import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
@@ -150,7 +148,7 @@ export default function Consultant() {
                     
                   /> */}
                   {/* <CheckCircleOutlinedIcon/> */}
-                  <Link to={card.consultantLinkedIn}><LinkedInIcon  style={{color:"blue", marginLeft: "auto", fontSize:"33px"}}/></Link>
+                  {/* <Link to={card.consultantLinkedIn}><LinkedInIcon  style={{color:"blue", marginLeft: "auto", fontSize:"33px"}}/></Link> */}
                 </CardActions>
               </Card>
             </Grid>
