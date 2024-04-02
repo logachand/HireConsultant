@@ -25,6 +25,7 @@ import Testimonal from "../../TestComp/Testimonal";
 import MainNavbar from "../Navbar/MainNavbar";
 import Rating from "@mui/material/Rating";
 import { NavLink, Link } from "react-router-dom";
+import img1 from "./hello.jpg"
 import Footer from "../../Footer/Footer"
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -70,16 +71,18 @@ export default function Consultant() {
                 sx={{ maxWidth: 345 }}
                 style={{ padding: "30px", marginBottom: "30px" }}
               >
+                
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
+                    // height="140"
                     image={card.img}
                     alt="green iguana"
                     style={{
                       width: "128",
                       height: "128",
-                      borderRadius: "12px",
+                      borderRadius: "50%", // Apply border radius for perfect circle
+                      objectFit: "cover" // Maintain aspect ratio and cover the entire space
                     }}
                   />
                   <CardContent>
@@ -154,6 +157,11 @@ export default function Consultant() {
           ))}
         </Grid>
       </Container>
+
+        
+ 
+
+
       {/* <Footer/> */}
     </>
   );
