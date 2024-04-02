@@ -168,6 +168,10 @@
   .card-inner > .card_icon {
     font-size: 25px;
   }
+
+  .card-icon {
+    flex-direction: row;
+  }
   
   .charts {
     display: grid;

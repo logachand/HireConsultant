@@ -11,7 +11,6 @@ import Container from "@mui/material/Container";
 import { CardActionArea } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 // import LinkedInIcon from '@material-ui/icons/LinkedIn';
 // import Checkbox from "@mui/material/Checkbox";
 // import Navigation from "../Navigation";
@@ -23,7 +22,7 @@ import Testimonal from "../../TestComp/Testimonal";
 import MainNavbar from "../Navbar/MainNavbar";
 import Rating from "@mui/material/Rating";
 import { NavLink, Link } from "react-router-dom";
-import img1 from "./hello.jpg"
+
 import Footer from "../../Footer/Footer"
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
