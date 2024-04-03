@@ -1,13 +1,15 @@
 const express = require('express')
 const app = express()
+const admin_route =  require('./routes/adminRoutes')
 const login_route =  require('./routes/login')
 const consultantRoute = require('./routes/consultantsRoute')
 const hiredConsultantRoute = require('./routes/hiredConsultant')
+const reviewConsultantRoute = require('./routes/reviewConsultant')
 const cors = require('cors')
 const connectDB = require('./utils/Database')
 const {requireAuth} = require('./middleware/authMiddleware')
 const dotenv = require('dotenv')
-const reviewConsultantRoute = require('./routes/reviewConsultant')
+
 dotenv.config()
 const PORT =  process.env.PORT
 
@@ -33,7 +35,8 @@ app.get('/',(req,res)=>{
 })
 
 
-// Routes
+// 
+app.use('/admin',admin_route)
 app.use('/userCredentials',login_route)
 app.use('/consultant',consultantRoute)
 app.use('/hiredConsultant',hiredConsultantRoute)

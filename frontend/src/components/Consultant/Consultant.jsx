@@ -23,7 +23,6 @@ import MainNavbar from "../Navbar/MainNavbar";
 import Rating from "@mui/material/Rating";
 import { NavLink, Link } from "react-router-dom";
 
-import Footer from "../../Footer/Footer"
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -40,7 +39,7 @@ export default function Consultant() {
 
   const getToken = window.localStorage.getItem("Token");
   const googleLogin = window.localStorage.getItem("Token")
-  console.log(getToken);
+
 
   return (
     <>

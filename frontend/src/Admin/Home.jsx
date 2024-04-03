@@ -89,7 +89,7 @@ function Home() {
         <div className="card">
           <div className="card-inner">
             <h3>Consultants</h3>
-            <BsFillArchiveFill className="card_icon" />
+            
           </div>
           <h1>{consultantsCount}</h1>
         </div>
@@ -102,14 +102,14 @@ function Home() {
         >
           <div className="card-inner">
             <h3>Create Consultant</h3>
-            <BsFillGrid3X3GapFill className="card_icon" />
+            {/* <BsFillGrid3X3GapFill className="card_icon" /> */}
           </div>
         </div>
 
         <div className="card">
           <div className="card-inner">
             <h3>Users</h3>
-            <BsPeopleFill className="card_icon" />
+            {/* <BsPeopleFill className="card_icon" /> */}
           </div>
           <h1>{totalUser}</h1>
         </div>
@@ -122,7 +122,7 @@ function Home() {
         >
           <div className="card-inner">
             <h3>Delete Consultant</h3>
-            <BsFillBellFill className="card_icon" />
+            {/* <BsFillBellFill className="card_icon" /> */}
           </div>
         </div>
       </div>
