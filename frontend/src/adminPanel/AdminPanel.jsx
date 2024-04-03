@@ -10,13 +10,17 @@ function AdminPanel({ getId }) {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`,{
-      headers:{
-        'access-token':localStorage.getItem("Token")
-      }
-    }).then((res) => setUsers(res.data));
+  getToken()
   });
 
+const getToken = () => {
+  Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`,{
+    headers:{
+      'access-token':localStorage.getItem("Token")
+    }
+  }).then((res) => setUsers(res.data));
+}
+ 
   const deleteUser = (e) => {
     console.log(`User ID from MongoDB : ${e}`);
     const confirmDelete = window.confirm("Are you sure you want to delete this user?");

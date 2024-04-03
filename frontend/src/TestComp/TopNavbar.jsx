@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./css/style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link, useNavigate } from "react-router-dom";
 
 export default function TopNavbar() {
-  
-  const navigate = useNavigate()
-  const Logout = () =>{
-    window.localStorage.removeItem("Token")
-    navigate("/login")
-  }
-  
+    
   const getToken = window.localStorage.getItem("Token")
   console.log(getToken);
 
