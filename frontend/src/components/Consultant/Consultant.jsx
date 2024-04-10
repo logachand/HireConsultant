@@ -23,12 +23,12 @@ import MainNavbar from "../Navbar/MainNavbar";
 import Rating from "@mui/material/Rating";
 import { NavLink, Link } from "react-router-dom";
 
-
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
 
 export default function Consultant() {
   const [cards, setCards] = useState([]);
+  const [search, setSearch] = useState();
+
   useEffect(() => {
     Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/getConsultant`, {
       headers: {
@@ -38,7 +38,24 @@ export default function Consultant() {
   });
 
   const getToken = window.localStorage.getItem("Token");
-  const googleLogin = window.localStorage.getItem("Token")
+  const googleLogin = window.localStorage.getItem("Token");
+
+ 
+const searchSubmit = (e) =>{
+  e.preventDefault();
+  console.log("Current Statsus");
+  getSearch();
+}
+
+
+const getSearch = () =>{
+    console.log("Newwwwwww");
+    Axios.get(`${process.env.REACT_APP_SERVER_API}/consultant/searchConsultant/${search}`).then(res => console.log(res.data));
+
+  
+}
+  console.log("Now Search Item Name " + search);
+
 
 
   return (
@@ -60,6 +77,17 @@ export default function Consultant() {
         >
           Consultant List
         </h1>
+
+        <form onSubmit={searchSubmit}>
+          <input
+            type="text"
+            name="search"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          &nbsp;
+          <button type="submit">submit</button>
+        </form>
+
         <Grid container spacing={5} style={{ marginTop: "20px" }}>
           {cards.map((card, index) => (
             <Grid item xs={12} sm={4} ms={4} key={index}>
@@ -67,7 +95,6 @@ export default function Consultant() {
                 sx={{ maxWidth: 345 }}
                 style={{ padding: "30px", marginBottom: "30px" }}
               >
-                
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -78,7 +105,7 @@ export default function Consultant() {
                       width: "128",
                       height: "128",
                       borderRadius: "50%", // Apply border radius for perfect circle
-                      objectFit: "cover" // Maintain aspect ratio and cover the entire space
+                      objectFit: "cover", // Maintain aspect ratio and cover the entire space
                     }}
                   />
                   <CardContent>
@@ -88,10 +115,9 @@ export default function Consultant() {
                     <Typography variant="body2" color="text.secondary">
                       {card.des}
                     </Typography>
-                    <Link to={`/reviewConsutant/${card._id}`}><Rating
-                      name="simple-controlled"
-                      value={card.ratings}
-                    /></Link>
+                    <Link to={`/reviewConsutant/${card._id}`}>
+                      <Rating name="simple-controlled" value={card.ratings} />
+                    </Link>
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
@@ -154,12 +180,7 @@ export default function Consultant() {
         </Grid>
       </Container>
 
-        
- 
-
-
       {/* <Footer/> */}
     </>
   );
 }
-

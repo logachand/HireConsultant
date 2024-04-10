@@ -25,15 +25,7 @@ export const MainNavbar = () => {
   
   const handleAdminSubmit = (e) => {
     e.preventDefault();
-    // Check if admin password is correct (you can replace this with your own logic)
-    // const correctPassword = "admin123"; // Change this to your actual admin password
-    // if (adminPassword === correctPassword) {
-    //   // Navigate to admin panel if password is correct
-    //   window.location.href = "/mainAdmin"; // You can use React Router navigation here if needed
-    // } else {
-    //   alert("Incorrect admin password");
-    // }
-
+   
     Axios.post(`${process.env.REACT_APP_SERVER_API}/admin/adminLogin`,{
       adminName,adminPassword
     })

@@ -112,4 +112,18 @@ consultantRoute.delete("/deleteConsultant/:id",async(req,res)=>{
 })
 
 
+// search Consultant by name
+
+consultantRoute.get(`/searchConsultant/:key`,(req,res)=>{
+
+const consultantKey =  req.params.key
+consultantModel.find({title:{$regex:consultantKey}})
+.then((consultant)=>{
+    res.json(consultant)
+})
+.catch((err)=>res.json({message:`Error is Going on please check: ${err}`}))
+    
+})
+
+
 module.exports = consultantRoute;
